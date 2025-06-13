@@ -8,6 +8,7 @@ const {
   VoiceConnectionStatus,
   entersState
 } = require('@discordjs/voice');
+const http = require('http');
 
 const VOICE_CHANNEL_ID = '1382150540166828092'; // Your specified voice channel ID
 const RADIO_URL = 'https://vpr.streamguys1.com/vpr64.mp3'; // Radio stream URL
@@ -104,6 +105,14 @@ function playStream() {
 client.once('ready', () => {
   console.log(`✅ Logged in as ${client.user.tag}`);
   setupVoice(); // Call setupVoice on bot ready
+
+  // Start the HTTP server to keep the bot alive
+  http.createServer((req, res) => {
+    res.writeHead(200, { 'Content-Type': 'text/plain' });
+    res.end('Discord bot is alive!');
+  }).listen(process.env.PORT || 3000, () => {
+    console.log(`HTTP server listening on port ${process.env.PORT || 3000}`);
+  });
 });
 
 client.on('messageCreate', message => {

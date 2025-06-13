@@ -1,0 +1,32 @@
+# Node.js
+node_modules/
+.env
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.info
+
+# Optional npm cache directory
+.npm/
+
+# Optional REPL history
+.node_repl_history
+
+# macOS
+.DS_Store
+
+# Thumbnails
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini 
